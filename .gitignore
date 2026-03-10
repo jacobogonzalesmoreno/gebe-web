@@ -1,0 +1,6 @@
+# Archivos y carpetas a ignorar por Git
+node_modules/
+dist/
+.env
+.DS_Store
+Thumbs.db

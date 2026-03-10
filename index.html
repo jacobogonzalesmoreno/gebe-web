@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEBE International | Maquinaria Pesada y Repuestos</title>
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #D4A843;
+            --gold-light: #E8C96A;
+            --gold-dark: #B8892E;
+            --dark-bg: #0A0A0F;
+            --dark-card: #111118;
+            --dark-surface: #1A1A24;
+            --blue-accent: #5B5BF0;
+            --blue-hover: #7272FF;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9999AA;
+            --text-muted: #666680;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 168, 67, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--dark-surface);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-logo-icon span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .nav-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold) !important;
+            color: var(--dark-bg) !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: background 0.3s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-light) !important;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(91, 91, 240, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(212, 168, 67, 0.1);
+            border: 1px solid rgba(212, 168, 67, 0.25);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-badge i {
+            font-size: 0.9rem;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--dark-bg);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 168, 67, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease 0.3s both;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(10, 10, 15, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 2;
+        }
+
+        .hero-image-overlay .tag {
+            background: rgba(212, 168, 67, 0.9);
+            color: var(--dark-bg);
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .floating-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 168, 67, 0.3);
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .floating-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #4CAF50;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        .floating-badge span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .services .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-tag::before,
+        .section-tag::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.5;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--dark-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--blue-accent));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 168, 67, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(212, 168, 67, 0.15), rgba(212, 168, 67, 0.05));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon i {
+            font-size: 1.4rem;
+            color: var(--gold);
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            padding: 6rem 2rem;
+            background: var(--dark-card);
+        }
+
+        .about .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-card {
+            background: var(--dark-surface);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .about-logo {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1.5rem;
+            background: var(--dark-bg);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-logo span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+        }
+
+        .about-company-info {
+            text-align: center;
+        }
+
+        .about-company-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-company-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .about-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-content h2 .highlight {
+            color: var(--gold);
+        }
+
+        .about-content .description {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .about-feature .icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: rgba(212, 168, 67, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-feature .icon i {
+            color: var(--gold);
+            font-size: 0.95rem;
+        }
+
+        .about-feature span {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery {
+            padding: 6rem 2rem;
+        }
+
+        .gallery .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 15, 0.9) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .gallery-item .overlay span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .gallery-item.featured {
+            grid-column: span 2;
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--dark-card);
+        }
+
+        .contact .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+        }
+
+        .contact-item .icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: rgba(212, 168, 67, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item .icon i {
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+
+        .contact-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            background: var(--dark-surface);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: var(--dark-bg);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: var(--dark-surface);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-form h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: var(--dark-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 0.9rem 1.2rem;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--dark-bg);
+            padding: 1rem;
+            border-radius: 12px;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            box-shadow: 0 10px 30px rgba(212, 168, 67, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-logo {
+            width: 36px;
+            height: 36px;
+            background: var(--dark-surface);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 0.6rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ===== BRANDS MARQUEE ===== */
+        .brands {
+            padding: 4rem 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            background: var(--dark-card);
+        }
+
+        .brands-label {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .marquee-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .marquee-wrapper::before,
+        .marquee-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 150px;
+            z-index: 2;
+        }
+
+        .marquee-wrapper::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--dark-card), transparent);
+        }
+
+        .marquee-wrapper::after {
+            right: 0;
+            background: linear-gradient(270deg, var(--dark-card), transparent);
+        }
+
+        .marquee-track {
+            display: flex;
+            animation: marquee 25s linear infinite;
+            width: max-content;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .brand-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.8rem 2.5rem;
+            margin: 0 1rem;
+            background: var(--dark-surface);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .brand-item:hover {
+            border-color: rgba(212, 168, 67, 0.3);
+            transform: scale(1.05);
+        }
+
+        .brand-item i {
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+
+        .brand-item span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== PROCESS ===== */
+        .process {
+            padding: 6rem 2rem;
+        }
+
+        .process .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-grid::before {
+            content: '';
+            position: absolute;
+            top: 45px;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--blue-accent), var(--gold));
+            opacity: 0.2;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: var(--dark-card);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: var(--gold);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+
+        .process-step:hover .step-number {
+            background: var(--gold);
+            color: var(--dark-bg);
+            box-shadow: 0 0 30px rgba(212, 168, 67, 0.3);
+        }
+
+        .process-step h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 6rem 2rem;
+            background: var(--dark-card);
+        }
+
+        .testimonials .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--dark-surface);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 168, 67, 0.15);
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 0.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-stars i {
+            color: var(--gold);
+            font-size: 0.85rem;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--gold), var(--blue-accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .testimonial-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2.5rem;
+            color: rgba(212, 168, 67, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            padding: 6rem 2rem;
+        }
+
+        .faq .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--dark-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .faq-item.active {
+            border-color: rgba(212, 168, 67, 0.2);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.3rem 1.5rem;
+            cursor: pointer;
+            gap: 1rem;
+        }
+
+        .faq-question h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .faq-question .faq-icon {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            background: rgba(212, 168, 67, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            background: var(--gold);
+            transform: rotate(45deg);
+        }
+
+        .faq-icon i {
+            font-size: 0.8rem;
+            color: var(--gold);
+            transition: color 0.3s;
+        }
+
+        .faq-item.active .faq-icon i {
+            color: var(--dark-bg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 1.5rem 1.3rem;
+        }
+
+        .faq-answer p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner .container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, rgba(212, 168, 67, 0.12), rgba(91, 91, 240, 0.08));
+            border: 1px solid rgba(212, 168, 67, 0.2);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.08), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .cta-card p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: white;
+            animation: float-bounce 3s ease-in-out infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-float i {
+            font-size: 1.8rem;
+        }
+
+        .whatsapp-float .tooltip {
+            position: absolute;
+            right: 70px;
+            background: var(--dark-card);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .whatsapp-float:hover .tooltip {
+            opacity: 1;
+        }
+
+        @keyframes float-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ===== COUNTER ANIMATION ===== */
+        .counter-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(212, 168, 67, 0.06), rgba(91, 91, 240, 0.04));
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .counter-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .counter-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .counter-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(212, 168, 67, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .counter-icon i {
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+
+        .counter-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 0.3rem;
+        }
+
+        .counter-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-description {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about .container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item.featured {
+                grid-column: span 2;
+                grid-row: span 1;
+                aspect-ratio: 16/9;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark-card);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+
+            .stat-item {
+                text-align: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item.featured {
+                grid-column: span 1;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .process-grid::before {
+                display: none;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .counter-section .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-card {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .cta-card h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer .container {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <span>GEBE</span>
+                </div>
+                <span class="nav-brand">GEBE International</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-globe-americas"></i>
+                    Medellín — Colombia
+                </div>
+                <h1>
+                    Importamos<br>
+                    <span class="highlight">Maquinaria Pesada</span><br>
+                    y Repuestos
+                </h1>
+                <p class="hero-description">
+                    Importamos todo tipo de maquinaria pesada del mundo y repuestos. 
+                    Soluciones confiables para la industria agrícola y de construcción con equipos de las mejores marcas.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn-primary">
+                        <i class="fab fa-whatsapp"></i> Cotizar Ahora
+                    </a>
+                    <a href="#servicios" class="btn-secondary">
+                        <i class="fas fa-play-circle"></i> Conocer Más
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Máquinas Importadas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <div class="floating-badge">
+                        <div class="dot"></div>
+                        <span>VENDIDA</span>
+                    </div>
+                    <img src="img/Captura%20de%20pantalla_10-3-2026_164144_www.instagram.com.jpeg" alt="KOBELCO SK200 MARK IV - Excavadora">
+                    <div class="hero-image-overlay">
+                        <span class="tag">KOBELCO SK200 — MARK IV</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRANDS MARQUEE -->
+    <section class="brands">
+        <div class="brands-label">Marcas con las que trabajamos</div>
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <div class="brand-item"><i class="fas fa-hard-hat"></i><span>Kobelco</span></div>
+                <div class="brand-item"><i class="fas fa-truck-monster"></i><span>Caterpillar</span></div>
+                <div class="brand-item"><i class="fas fa-cog"></i><span>Komatsu</span></div>
+                <div class="brand-item"><i class="fas fa-industry"></i><span>Volvo</span></div>
+                <div class="brand-item"><i class="fas fa-tools"></i><span>Hitachi</span></div>
+                <div class="brand-item"><i class="fas fa-wrench"></i><span>John Deere</span></div>
+                <div class="brand-item"><i class="fas fa-tractor"></i><span>Case</span></div>
+                <div class="brand-item"><i class="fas fa-truck"></i><span>Hyundai</span></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="brand-item"><i class="fas fa-hard-hat"></i><span>Kobelco</span></div>
+                <div class="brand-item"><i class="fas fa-truck-monster"></i><span>Caterpillar</span></div>
+                <div class="brand-item"><i class="fas fa-cog"></i><span>Komatsu</span></div>
+                <div class="brand-item"><i class="fas fa-industry"></i><span>Volvo</span></div>
+                <div class="brand-item"><i class="fas fa-tools"></i><span>Hitachi</span></div>
+                <div class="brand-item"><i class="fas fa-wrench"></i><span>John Deere</span></div>
+                <div class="brand-item"><i class="fas fa-tractor"></i><span>Case</span></div>
+                <div class="brand-item"><i class="fas fa-truck"></i><span>Hyundai</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">Servicios</div>
+                <h2 class="section-title">Lo Que Hacemos Por Ti</h2>
+                <p class="section-subtitle">Ofrecemos soluciones integrales en maquinaria pesada para la industria agrícola y de construcción.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Importación de Maquinaria</h3>
+                    <p>Importamos maquinaria pesada de las mejores marcas del mundo directamente hasta Colombia.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Repuestos Originales</h3>
+                    <p>Suministramos repuestos originales y de alta calidad para todo tipo de maquinaria pesada.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3>Maquinaria Agrícola</h3>
+                    <p>Equipos especializados para el sector agrícola: tractores, excavadoras, retroexcavadoras y más.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Asesoría Personalizada</h3>
+                    <p>Te acompañamos en todo el proceso de selección y compra del equipo ideal para tu operación.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-truck-loading"></i>
+                    </div>
+                    <h3>Logística y Entrega</h3>
+                    <p>Gestionamos toda la logística de importación, transporte y entrega de tu maquinaria.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Garantía de Calidad</h3>
+                    <p>Todos nuestros equipos pasan por rigurosas inspecciones para garantizar su óptimo funcionamiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process" id="proceso">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">Proceso</div>
+                <h2 class="section-title">¿Cómo Trabajamos?</h2>
+                <p class="section-subtitle">Un proceso sencillo y transparente para que obtengas tu maquinaria de forma rápida y segura.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Consulta</h3>
+                    <p>Cuéntanos qué maquinaria necesitas. Te asesoramos sin compromiso.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Cotización</h3>
+                    <p>Buscamos las mejores opciones y te enviamos una cotización detallada.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Importación</h3>
+                    <p>Gestionamos toda la logística de importación y documentación.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Entrega</h3>
+                    <p>Recibes tu maquinaria lista para operar con total garantía.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTERS -->
+    <section class="counter-section">
+        <div class="container">
+            <div class="counter-item fade-in">
+                <div class="counter-icon"><i class="fas fa-truck-loading"></i></div>
+                <div class="counter-value" data-target="150">0</div>
+                <div class="counter-label">Máquinas Importadas</div>
+            </div>
+            <div class="counter-item fade-in">
+                <div class="counter-icon"><i class="fas fa-globe-americas"></i></div>
+                <div class="counter-value" data-target="12">0</div>
+                <div class="counter-label">Países de Origen</div>
+            </div>
+            <div class="counter-item fade-in">
+                <div class="counter-icon"><i class="fas fa-users"></i></div>
+                <div class="counter-value" data-target="80">0</div>
+                <div class="counter-label">Clientes Satisfechos</div>
+            </div>
+            <div class="counter-item fade-in">
+                <div class="counter-icon"><i class="fas fa-award"></i></div>
+                <div class="counter-value" data-target="3">0</div>
+                <div class="counter-label">Años de Experiencia</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="about-image fade-in">
+                <div class="about-image-card">
+                    <div class="about-logo">
+                        <span>GEBE</span>
+                    </div>
+                    <div class="about-company-info">
+                        <h3>GEBE International</h3>
+                        <p>Maquinaria Agrícola y Repuestos</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-content fade-in">
+                <div class="section-tag">Sobre Nosotros</div>
+                <h2>Somos Tu Aliado en <span class="highlight">Maquinaria Pesada</span></h2>
+                <p class="description">
+                    Desde Medellín, Colombia, GEBE International se especializa en la importación de maquinaria pesada y repuestos de las mejores marcas del mundo. Trabajamos con marcas reconocidas como Kobelco, brindando equipos confiables para la industria agrícola y de construcción.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="icon"><i class="fas fa-check"></i></div>
+                        <span>Importación directa de maquinaria pesada del mundo</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="icon"><i class="fas fa-check"></i></div>
+                        <span>Repuestos originales y de alta calidad</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="icon"><i class="fas fa-check"></i></div>
+                        <span>Marcas reconocidas: Kobelco, y más</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="icon"><i class="fas fa-check"></i></div>
+                        <span>Ubicados en Medellín, Colombia</span>
+                    </div>
+                </div>
+                <a href="#contacto" class="btn-primary">
+                    <i class="fas fa-arrow-right"></i> Contáctanos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">Galería</div>
+                <h2 class="section-title">Nuestros Equipos</h2>
+                <p class="section-subtitle">Conoce algunos de los equipos que hemos importado y entregado a nuestros clientes.</p>
+            </div>
+            <div class="gallery-grid fade-in">
+                <div class="gallery-item featured">
+                    <img src="img/Captura%20de%20pantalla_10-3-2026_164144_www.instagram.com.jpeg" alt="KOBELCO SK200 MARK IV">
+                    <div class="overlay">
+                        <span>KOBELCO SK200 — MARK IV</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/Captura%20de%20pantalla_10-3-2026_164144_www.instagram.com.jpeg" alt="Excavadora Kobelco">
+                    <div class="overlay">
+                        <span>Maquinaria Pesada</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/Captura%20de%20pantalla_10-3-2026_164144_www.instagram.com.jpeg" alt="Equipo de construcción">
+                    <div class="overlay">
+                        <span>Equipos de Construcción</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">Testimonios</div>
+                <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+                <p class="section-subtitle">La satisfacción de nuestros clientes es nuestra mejor carta de presentación.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Excelente servicio. La excavadora llegó en perfecto estado y el proceso de importación fue totalmente transparente. Muy recomendados."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">CM</div>
+                        <div>
+                            <div class="testimonial-name">Carlos M.</div>
+                            <div class="testimonial-role">Empresa de Construcción</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Los repuestos que necesitaba para mi Kobelco estaban agotados en todo el país. GEBE los consiguió en tiempo récord. Increíble gestión."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AP</div>
+                        <div>
+                            <div class="testimonial-name">Alexander P.</div>
+                            <div class="testimonial-role">Operador Independiente</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"Desde la cotización hasta la entrega, todo fue profesional. La maquinaria llegó en las condiciones prometidas. Volveremos a comprar."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AD</div>
+                        <div>
+                            <div class="testimonial-name">Alonso D.</div>
+                            <div class="testimonial-role">Finca Agrícola</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">FAQ</div>
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <p class="section-subtitle">Resolvemos tus dudas más comunes sobre nuestro servicio de importación.</p>
+            </div>
+            <div class="faq-list fade-in">
+                <div class="faq-item active">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h4>¿De qué países importan la maquinaria?</h4>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Importamos maquinaria de diversos países como Japón, Estados Unidos, Corea del Sur, Europa y más. Buscamos siempre las mejores opciones en calidad y precio a nivel mundial.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h4>¿Cuánto tiempo tarda el proceso de importación?</h4>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>El tiempo varía según el origen y tipo de maquinaria. Generalmente, el proceso completo toma entre 4 a 8 semanas, incluyendo transporte marítimo y trámites de aduana.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h4>¿Ofrecen garantía en los equipos importados?</h4>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, todos nuestros equipos pasan por inspecciones rigurosas antes del envío. Ofrecemos garantía sobre el estado mecánico y funcional de cada máquina.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h4>¿También venden repuestos por separado?</h4>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>¡Claro! Importamos repuestos originales y compatibles para todo tipo de maquinaria pesada. Solo necesitas indicarnos la referencia y nosotros nos encargamos.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h4>¿Cómo puedo cotizar una máquina?</h4>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Puedes contactarnos por WhatsApp, Instagram (@gebeinternational), o a través del formulario de contacto en esta página. Responderemos con una cotización detallada en menos de 24 horas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">Contacto</div>
+                <h2 class="section-title">Hablemos de Tu Proyecto</h2>
+                <p class="section-subtitle">Cotiza tu maquinaria o repuesto. Estamos listos para ayudarte.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Medellín, Colombia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Correo Electrónico</h4>
+                            <p>info@gebeinternational.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fab fa-instagram"></i></div>
+                        <div>
+                            <h4>Instagram</h4>
+                            <p>@gebeinternational</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/gebeinternational/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form onsubmit="return false;">
+                        <div class="form-group">
+                            <input type="text" placeholder="Tu Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Tu Correo Electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Asunto">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="¿En qué podemos ayudarte?"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            Enviar Mensaje <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <span>GEBE</span>
+                </div>
+                <span class="footer-text">© 2026 GEBE International. Todos los derechos reservados.</span>
+            </div>
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="#contacto" class="whatsapp-float" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">¡Escríbenos!</span>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 15, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 15, 0.85)';
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // FAQ toggle
+        function toggleFaq(el) {
+            const item = el.closest('.faq-item');
+            const wasActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!wasActive) item.classList.add('active');
+        }
+
+        // Counter animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            counter.textContent = target + '+';
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current) + '+';
+                        }
+                    }, 16);
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter-value').forEach(el => counterObserver.observe(el));
+
+        // Smooth parallax on hero image
+        window.addEventListener('scroll', () => {
+            const heroImg = document.querySelector('.hero-image-wrapper img');
+            if (heroImg) {
+                const scrolled = window.scrollY;
+                heroImg.style.transform = 'scale(1.05) translateY(' + scrolled * 0.08 + 'px)';
+            }
+        });
+    </script>
+
+</body>
+</html>
